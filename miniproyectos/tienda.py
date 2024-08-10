@@ -68,8 +68,12 @@ def formulario_registro(root:Tk) -> None:
     ########## CONFIGURACION DE WIDGETS ##########
 
     # CONFIGURACION GRID
-    formulario_win.grid_columnconfigure(0, weight=1) # proporcion columna 0
+    formulario_win.grid_columnconfigure(0, weight=3) # proporcion columna 0
     formulario_win.grid_columnconfigure(1, weight=1) # proporcion columna 1
+    formulario_win.grid_rowconfigure(4, weight=1) # proporcion fila 3
+
+    # VENTANA SECUNDARIA
+    formulario_win.configure(bg="green") # color de fondo
     
     # ETIQUETAS
     codigo_lbl.configure(text="Codigo") # conf. etiqueta
@@ -85,14 +89,14 @@ def formulario_registro(root:Tk) -> None:
     stock_lbl.configure(padx=10, pady=10) # conf. padding
 
     # INPUTS
-    codigo_inp.configure(width=20) # ancho del input
+    """ codigo_inp.configure(width=20) # ancho del input
     producto_inp.configure(width=40) # ancho del input
     precio_inp.configure(width=20) # ancho del input
-    stock_inp.configure(width=20) # ancho del input
+    stock_inp.configure(width=20) # ancho del input """
 
     # BOTONES
-    guardar_btn.configure(text="GUARDAR") # etiqueta del boton
-    cancelar_btn.configure(text="CANCELAR") # etiqueta del boton
+    guardar_btn.configure(text="GUARDAR", width=20) # etiqueta del boton
+    cancelar_btn.configure(text="CANCELAR", width=20) # etiqueta del boton
 
     ########## EVENTOS ##########
     guardar_btn.bind("<Button-1>", None) # click guardar
@@ -102,20 +106,20 @@ def formulario_registro(root:Tk) -> None:
 
     # ETIQUETAS
     # dimensiones y padding de las etiquetas de los campos
-    codigo_lbl.grid(row=0, column=0, columnspan=2, padx=10, pady=5, sticky=NSEW)
+    codigo_lbl.grid(row=0, column=0, padx=10, pady=5, sticky=NSEW)
     producto_lbl.grid(row=1, column=0, columnspan=2, padx=10, pady=5, sticky=NSEW)
     precio_lbl.grid(row=2, column=0, columnspan=2, padx=10, pady=5, sticky=NSEW)
     stock_lbl.grid(row=3, column=0, columnspan=2, padx=10, pady=5, sticky=NSEW)
 
     # INPUTS
     codigo_inp.grid()
-    producto_inp.grid()
+    producto_inp.grid(sticky=NSEW)
     precio_inp.grid()
     stock_inp.grid()
 
     # BOTONES
-    guardar_btn.grid()
-    cancelar_btn.grid()
+    guardar_btn.grid(row=4, column=0, padx=10, pady=5,sticky=NSEW)
+    cancelar_btn.grid(row=4, column=1, padx=10, pady=5, sticky=NSEW)
 
 
 
